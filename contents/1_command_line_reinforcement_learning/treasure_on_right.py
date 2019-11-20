@@ -88,7 +88,8 @@ def rl():
             S_, R = get_env_feedback(S, A)  # take action & get next state and reward
             q_predict = q_table.loc[S, A]
             if S_ != 'terminal':
-                q_target = R + GAMMA * q_table.iloc[S_, :].max()   # next state is not terminal
+                #q_target = R + GAMMA * q_table.iloc[S_, :].max()   # next state is not terminal
+                q_target = R   # next state is not terminal
             else:
                 q_target = R     # next state is terminal
                 is_terminated = True    # terminate this episode

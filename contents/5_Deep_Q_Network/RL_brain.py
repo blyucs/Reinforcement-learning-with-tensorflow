@@ -110,6 +110,8 @@ class DeepQNetwork:
                 w2 = tf.get_variable('w2', [n_l1, self.n_actions], initializer=w_initializer, collections=c_names)
                 b2 = tf.get_variable('b2', [1, self.n_actions], initializer=b_initializer, collections=c_names)
                 self.q_next = tf.matmul(l1, w2) + b2
+                
+            #only compute,no loss,no train_op
 
     def store_transition(self, s, a, r, s_):
         if not hasattr(self, 'memory_counter'):
